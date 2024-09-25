@@ -67,7 +67,7 @@
             class="my-4 flex items-center border-t-4 border-green-300 bg-green-50 p-4 text-green-800"
             role="alert">
             <div class="ms-3 text-sm font-medium">
-                A simple success alert with an Give it a click if you like.
+                Thank you for contacting us. We will get back to you soon.
             </div>
         </div>
 
