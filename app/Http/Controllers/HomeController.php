@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ContactRequest;
 use App\Faq;
+use App\GeneralSetting;
 use App\OurService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -25,6 +26,8 @@ class HomeController extends Controller
     function submitContactForm(Request $request)
     {
 
+        $admin_email = GeneralSetting::first()->admin_email;
+
         $request->validate([
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
@@ -36,8 +39,8 @@ class HomeController extends Controller
 
         ContactRequest::create($request->all());
 
-        Mail::send('emails.booking-admin-email', compact('request'), function ($message) use ($request) {
-            $message->to('carlos.chnouda@gmail.com')->subject('Booking Request');
+        Mail::send('emails.booking-admin-email', compact('request'), function ($message) use ($admin_email) {
+            $message->to($admin_email)->subject('Booking Request');
         });
     }
 }
