@@ -2,10 +2,10 @@
     style="background-image: url({{ Storage::url($settings['testimonials_background_image']) }}); background-repeat: no-repeat; background-size: cover">
     <div class="testimonials-overlay"></div>
     <div class="container relative z-10 mx-auto py-10 md:py-20">
-        <div class="mb-10 text-center md:mb-20">
+        <div class="mb-10 text-center md:mb-20" animate='down'>
             <h1 class="text-4xl font-bold uppercase text-white">{{ $settings['testimonials_section_title'] }}</h1>
         </div>
-        <div class="min-h-xl mx-auto grid max-w-6xl grid-cols-1 md:grid-cols-2">
+        <div class="min-h-xl mx-auto grid max-w-6xl grid-cols-1 md:grid-cols-2" animate style="transition-delay: 0.7s">
             <div class="col-span-1">
                 <div class="h-full">
                     <img class="h-full w-full rounded-t-lg object-cover md:rounded-l-lg"

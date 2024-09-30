@@ -3,29 +3,29 @@
     @if (Auth::user()->paied)
         <div class="container mx-auto py-10">
             <header>
-                <h1 class="text-center text-3xl font-bold text-[#f00c93]">Welcome {{ Auth::user()->first_name }}
+                <h1 class="text-center text-3xl font-bold text-[#f00c93]" animate='up'>Welcome {{ Auth::user()->first_name }}
                     {{ Auth::user()->last_name }}</h1>
-                <h2 class="mt-2 text-center text-xl text-[#f00c93] text-gray-500">Here you can find your proffessional
+                <h2 class="mt-2 text-center text-xl text-[#f00c93] text-gray-500" animate='down'>Here you can find your proffessional
                     workout plan</h2>
             </header>
 
             <div id="nutrition_section">
-                <h1 class="mt-10 text-3xl font-bold text-[#f00c93]">{{ $settings['nutrition_section_title'] }}</h1>
+                <h1 class="mt-10 text-3xl font-bold text-[#f00c93]" animate>{{ $settings['nutrition_section_title'] }}</h1>
                 <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
-                    <div class="description mt-5">
+                    <div class="description mt-5" animate style="transition-delay: 1s">
                         {!! $settings['nutrition_section_description'] !!}
                     </div>
                     <div class="image">
-                        <img src="{{ Storage::url($settings['nutrition_section_image']) }}" alt="Nutrition Image">
+                        <img animate='right' style="transition-delay: 1.5s" src="{{ Storage::url($settings['nutrition_section_image']) }}" alt="Nutrition Image">
                     </div>
                 </div>
             </div>
             <section id="workout" class="mt-10">
-                <h1 class="mb-10 text-center text-4xl font-bold text-[#f00c93]">{{ $settings['workout_section_title'] }}
+                <h1 class="mb-10 text-center text-4xl font-bold text-[#f00c93]" animate>{{ $settings['workout_section_title'] }}
                 </h1>
                 <div class="grid grid-cols-1 gap-10 rounded-lg shadow-2xl md:grid-cols-3 p-5 md:p-10">
                     @foreach ($workout_plans as $plan)
-                        <div class="mb-10">
+                        <div class="mb-10" animate style="transition-delay: {{ $loop->index * 0.8 }}s">
                             <h1 class="mb-5 text-center text-3xl font-bold">{{ $plan->title }}</h1>
                             @foreach ($plan->categories as $category)
                                 <div class="mb-10">
@@ -58,7 +58,7 @@
                     @endforeach
                 </div>
             </section>
-            <section class="membership-section mt-10">
+            <section class="membership-section mt-10" animate>
                 {!! $settings['membership_section'] !!}
             </section>
         </div>

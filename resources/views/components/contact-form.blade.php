@@ -1,9 +1,10 @@
-<section id="contact" class="bg-slate-50 py-10 md:pb-20">
+<section id="contact" class="bg-slate-50 py-10 md:pb-20" >
 
-    <h2 class="mb-10 text-center text-3xl font-bold uppercase tracking-wide text-[#f00c93]">
+    <h2 class="mb-10 text-center text-3xl font-bold uppercase tracking-wide text-[#f00c93]" animate='up'>
         {{ $settings['contact_section_title'] }}</h2>
 
     <form id="contact-form" class="mx-auto max-w-lg rounded-xl bg-white p-10 shadow-xl" method="POST"
+    animate='down'
         action="{{ route('contact') }}">
         @csrf
         <div class="grid md:grid-cols-2 md:gap-6">

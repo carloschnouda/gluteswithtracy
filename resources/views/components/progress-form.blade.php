@@ -1,12 +1,13 @@
 <section class="bg-slate-50 py-10 md:pb-20">
 
     <div class="mb-10">
-        <h2 class="text-center text-3xl font-bold uppercase tracking-wide text-[#f00c93]">
+        <h2 class="text-center text-3xl font-bold uppercase tracking-wide text-[#f00c93]" animate='up'>
             Track your progress </h2>
-        <h4 class="text-center text-lg font-semibold tracking-wide text-[#f00c93]">We will keep tracking your progress
+        <h4 class="text-center text-lg font-semibold tracking-wide text-[#f00c93]" animate='down'>We will keep tracking
+            your progress
             for you</h4>
     </div>
-    <form id="progress-form" class="mx-auto max-w-lg rounded-xl bg-white p-10 shadow-xl" method="POST"
+    <form id="progress-form" class="mx-auto max-w-lg rounded-xl bg-white p-10 shadow-xl" animate method="POST"
         action="{{ route('progress') }}">
         @csrf
         <div class="grid md:grid-cols-2 md:gap-6">
@@ -20,7 +21,7 @@
             </div>
             <div class="group relative z-0 mb-5 w-full">
                 <input type="text" name="last_name" id="floating_last_name"
-                    class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-1 {{ Auth::user()->last_name ? 'py-1.5 bg-gray-100' : '' }} py-1.5 text-sm text-gray-900 focus:border-[#f00c93] focus:outline-none focus:ring-0"
+                    class="{{ Auth::user()->last_name ? 'py-1.5 bg-gray-100' : '' }} peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-1 py-1.5 text-sm text-gray-900 focus:border-[#f00c93] focus:outline-none focus:ring-0"
                     placeholder=" " value="{{ Auth::user()->last_name ? Auth::user()->last_name : '' }}"
                     {{ Auth::user()->last_name ? 'readonly' : '' }} />
                 <label for="floating_last_name"

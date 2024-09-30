@@ -375,6 +375,51 @@ body.menu-open .vbp-header-menu-button__svg .bottom {
   height: calc(100vh - 325px);
 }
 
+[animate] {
+  transition: transform 1s 0.5s, opacity 1s 0.5s;
+  opacity: 0;
+}
+
+[animate].show {
+  opacity: 1;
+}
+
+[animate=left] {
+  transform: translateX(-15px);
+}
+
+[animate=left].show {
+  transform: translateX(0);
+}
+
+[animate=right] {
+  transform: translateX(15px);
+}
+
+[animate=right].show {
+  transform: translateX(0);
+}
+
+[animate=up] {
+  transform: translateY(-15px);
+}
+
+[animate=up].show {
+  transform: translateY(0);
+}
+
+[animate=down] {
+  transform: translateY(15px);
+}
+
+[animate=down].show {
+  transform: translateY(0);
+}
+
+.no-transition-delay {
+  transition-delay: 0s;
+}
+
 @media (max-width: 767.9px) {
   .navlink.active {
     color: #fff;
