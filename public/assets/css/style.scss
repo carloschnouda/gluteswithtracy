@@ -401,6 +401,29 @@ $primaryColor: #f00c93;
     }
 }
 
+.membership-section {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    a {
+        color: #f00c93;
+        font-weight: bold;
+    }
+}
+
+#no-paied {
+    height: calc(100vh - 325px);
+}
+
 @media(max-width: 767.9px) {
 
     .navlink.active {
@@ -427,5 +450,18 @@ $primaryColor: #f00c93;
         }
     }
 
+    .membership-section {
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1rem;
+        }
+    }
 
 }

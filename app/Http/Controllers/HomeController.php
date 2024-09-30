@@ -6,6 +6,7 @@ use App\ContactRequest;
 use App\Faq;
 use App\GeneralSetting;
 use App\OurService;
+use App\WorkoutPlan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -22,6 +23,11 @@ class HomeController extends Controller
         return view('home', compact('services', 'faqs'));
     }
 
+    public function dashboard()
+    {
+        $workout_plans = WorkoutPlan::with('categories.workouts')->orderBy('ht_pos')->get();
+        return view('dashboard', compact('workout_plans'));
+    }
 
     function submitContactForm(Request $request)
     {

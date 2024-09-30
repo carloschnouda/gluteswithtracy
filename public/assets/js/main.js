@@ -202,3 +202,40 @@ $('#contact-form').on('submit', function (e) {
         }
     });
 })
+
+$(document).ready(function () {
+    // When workout wrapper is clicked
+    $('.workout-wrapper').on('click', function () {
+        // Get video URL from the data attribute
+        var videoUrl = $(this).data('video-url');
+
+        // Set the video source
+        $('#workoutVideo').attr('src', videoUrl);
+
+        // Show the modal
+        $('#videoModal').removeClass('hidden');
+    });
+
+    // When close button is clicked
+    $('#closeModal').on('click', function () {
+        // Hide the modal
+        $('#videoModal').addClass('hidden');
+
+        // Stop the video from playing
+        $('#workoutVideo').get(0).pause();
+        $('#workoutVideo').attr('src', '');
+    });
+
+    // When user clicks outside the modal content, close the modal
+    $(window).on('click', function (e) {
+        if ($(e.target).is('#videoModal')) {
+            // Hide the modal
+            $('#videoModal').addClass('hidden');
+
+            // Stop the video
+            $('#workoutVideo').get(0).pause();
+            $('#workoutVideo').attr('src', '');
+        }
+    });
+});
+

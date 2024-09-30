@@ -4,13 +4,13 @@
         <div class="grid grid-cols-1 gap-10 md:grid-cols-3">
             <!-- First Column -->
             <div class="col-span-1 md:col-span-1">
-                <div class="text-center">
+                <div class="flex justify-center md:justify-start">
                     <img class="h-[140px] w-[140px]" src="{{ Storage::url($settings['footer_logo']) }}" alt="Footer Logo">
                 </div>
             </div>
 
             <!-- Second Column -->
-            <div class="col-span-1 md:col-span-1">
+            <div class="col-span-1 md:col-span-1 order-2 md:order-1">
                 <div>
                     <h1
                         class="border-bottom mb-3 border-b border-white font-bold text-white md:mb-10 md:border-0 md:text-xl lg:text-2xl">
@@ -33,7 +33,7 @@
             </div>
 
             <!-- Third Column -->
-            <div class="col-span-1 md:col-span-1">
+            <div class="col-span-1 md:col-span-1 order-1 md:order-2">
                 <div class="booking_details">
                     <!-- Add content or links here -->
                     <h1

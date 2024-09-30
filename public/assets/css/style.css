@@ -357,6 +357,24 @@ body.menu-open .vbp-header-menu-button__svg .bottom {
     transform: rotate(1turn);
   }
 }
+.membership-section h1 {
+  font-size: 3rem;
+}
+.membership-section h2 {
+  font-size: 2rem;
+}
+.membership-section h3 {
+  font-size: 1.5rem;
+}
+.membership-section a {
+  color: #f00c93;
+  font-weight: bold;
+}
+
+#no-paied {
+  height: calc(100vh - 325px);
+}
+
 @media (max-width: 767.9px) {
   .navlink.active {
     color: #fff;
@@ -377,5 +395,14 @@ body.menu-open .vbp-header-menu-button__svg .bottom {
   }
   .body-overlay.active {
     display: block;
+  }
+  .membership-section h1 {
+    font-size: 2rem;
+  }
+  .membership-section h2 {
+    font-size: 1.5rem;
+  }
+  .membership-section h3 {
+    font-size: 1rem;
   }
 }/*# sourceMappingURL=style.css.map */

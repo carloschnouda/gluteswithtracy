@@ -28,40 +28,40 @@ return [
 
     'cms_assets' => [
 
-    	/*
+        /*
 	    |--------------------------------------------------------------------------
 	    | Used styles. You can add or remove any
 	    |--------------------------------------------------------------------------
 	    */
 
-	    'styles' => [
-	    	'asset?path=css/font-awesome/css/font-awesome.min.css',
-	    	'asset?path=css/bootstrap.min.css',
-	    	'asset?path=css/dataTables.min.css',
-	    	'asset?path=css/select2.min.css',
-	    	'asset?path=css/main.min.css',
-	    ],
+        'styles' => [
+            'asset?path=css/font-awesome/css/font-awesome.min.css',
+            'asset?path=css/bootstrap.min.css',
+            'asset?path=css/dataTables.min.css',
+            'asset?path=css/select2.min.css',
+            'asset?path=css/main.min.css',
+        ],
 
 
-    	/*
+        /*
 	    |--------------------------------------------------------------------------
 	    | Used scripts. You can add or remove any
 	    |--------------------------------------------------------------------------
 	    */
 
-	    'scripts' => [
-	    	'asset?path=js/jquery.min.js',
-	    	'asset?path=js/jquery-ui.min.js',
-	    	'asset?path=js/dataTables.min.js',
-	    	'asset?path=js/dataTables.buttons.min.js',
-	    	'asset?path=js/jszip.min.js',
-	    	'asset?path=js/pdfmake.min.js',
-	    	'asset?path=js/vfs_fonts.js',
-	    	'asset?path=js/buttons.html5.min.js',
-	    	'asset?path=js/select2.min.js',
-	    	'https://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js',
-	    	'asset?path=js/main.js',
-	    ],
+        'scripts' => [
+            'asset?path=js/jquery.min.js',
+            'asset?path=js/jquery-ui.min.js',
+            'asset?path=js/dataTables.min.js',
+            'asset?path=js/dataTables.buttons.min.js',
+            'asset?path=js/jszip.min.js',
+            'asset?path=js/pdfmake.min.js',
+            'asset?path=js/vfs_fonts.js',
+            'asset?path=js/buttons.html5.min.js',
+            'asset?path=js/select2.min.js',
+            'https://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js',
+            'asset?path=js/main.js',
+        ],
     ],
 
 
@@ -106,7 +106,10 @@ return [
     */
 
     'ckeditor' => [
-        'colors' => [],
+        'colors' => [
+            '000000',
+            'f00c93',
+        ],
     ],
 
 

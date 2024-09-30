@@ -55,7 +55,5 @@ Route::middleware(['website'])->group(function () {
 });
 
 Route::middleware(['auth', 'website'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 });
