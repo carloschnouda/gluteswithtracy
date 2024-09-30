@@ -20,9 +20,9 @@
             </div>
             <div class="group relative z-0 mb-5 w-full">
                 <input type="text" name="last_name" id="floating_last_name"
-                    class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-gray-100 px-1 py-1.5 text-sm text-gray-900 focus:border-[#f00c93] focus:outline-none focus:ring-0"
-                    placeholder=" " value="{{ Auth::user()->last_name ? Auth::user()->last_name : ' ' }}"
-                    readonly='{{ Auth::user()->last_name ? true : false }}' />
+                    class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-1 {{ Auth::user()->last_name ? 'py-1.5 bg-gray-100' : '' }} py-1.5 text-sm text-gray-900 focus:border-[#f00c93] focus:outline-none focus:ring-0"
+                    placeholder=" " value="{{ Auth::user()->last_name ? Auth::user()->last_name : '' }}"
+                    {{ Auth::user()->last_name ? 'readonly' : '' }} />
                 <label for="floating_last_name"
                     class="absolute top-0 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#f00c93] rtl:peer-focus:translate-x-1/4 dark:text-gray-400">Last
                     name</label>
@@ -42,8 +42,9 @@
             <div class="group relative z-0 mb-5 w-full">
                 <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                     type="text" name="phone_number" id="floating_phone"
-                    class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-[#f00c93] focus:outline-none focus:ring-0"
-                    placeholder=" " />
+                    class="{{ Auth::user()->phone_number ? 'bg-gray-100 py-1.5 mt-2' : 'bg-transparent py-2.5' }} peer block w-full appearance-none border-0 border-b-2 border-gray-300 px-0 text-sm text-gray-900 focus:border-[#f00c93] focus:outline-none focus:ring-0"
+                    placeholder=" " value="{{ Auth::user()->phone_number }}"
+                    {{ Auth::user()->phone_number ? 'readonly' : '' }} />
                 <label for="floating_phone"
                     class="absolute top-2 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#f00c93] rtl:peer-focus:translate-x-1/4 dark:text-gray-400">Phone
                     number</label>
