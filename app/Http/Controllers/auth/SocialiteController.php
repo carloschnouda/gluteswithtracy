@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\auth;
 
+use App\GeneralSetting;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -32,6 +33,8 @@ class SocialiteController extends Controller
 
         $old_user = User::where('email', $user->email)->first();
 
+        $user_email = GeneralSetting::first()->verify_user_email;
+
         if ($existing_user) {
             Auth::login($existing_user);
             return redirect('/');
@@ -51,7 +54,7 @@ class SocialiteController extends Controller
                 'password' => encrypt('123456dummy'),
                 'email_verified' => 1,
             ]);
-            Mail::send('emails.google-verify', compact('newUser'), function ($message) use ($newUser) {
+            Mail::send('emails.google-verify', compact('newUser', 'user_email'), function ($message) use ($newUser) {
                 $message->to($newUser['email'])->subject('Subscribe');
             });
             Auth::login($newUser);
