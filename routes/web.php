@@ -52,6 +52,9 @@ Route::middleware(['website'])->group(function () {
 
     //contact form
     Route::post('/contact', [HomeController::class, 'submitContactForm'])->name('contact');
+
+    //Progress form
+    Route::post('/progress', [HomeController::class, 'submitProgressForm'])->name('progress');
 });
 
 Route::middleware(['auth', 'website'])->group(function () {

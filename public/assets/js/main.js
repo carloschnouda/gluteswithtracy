@@ -166,6 +166,48 @@ function handleAccordion() {
     items.forEach(item => item.addEventListener('click', toggleAccordion));
 }
 
+$('#progress-form').on('submit', function (e) {
+    e.preventDefault();
+    $('#alert-danger').hide();
+    $('#alert-success').hide();
+    $('#alert-danger .message').html('');
+
+    var formData = new FormData(this);
+
+    $.ajax({
+        type: 'POST',
+        url: $(this).attr('action'),
+        data: formData,
+        processData: false,  // Required for FormData
+        contentType: false,  // Required for FormData
+        beforeSend: function () {
+            $('#progress-btn').hide();
+            $('#loader-wrapper').removeClass('hidden');
+        },
+        success: function (data) {
+            $('#progress-form').trigger('reset');
+            $('#loader-wrapper').addClass('hidden');
+            $('#progress-btn').show();
+            $('#alert-success').show(500);
+            setTimeout(function () {
+                $('#alert-success').hide(500);
+            }, 10000);
+        },
+        error: function (res) {
+            // errors = data.responseJSON.errors;
+            // console.log(errors);
+            for (let inputName in res.responseJSON.errors) {
+                for (let i = 0; i < res.responseJSON.errors[inputName].length; i++) {
+                    $('#alert-danger .message').append(`<p>${res.responseJSON.errors[inputName][i]}</p>`);
+                }
+            }
+            $('#loader-wrapper').addClass('hidden');
+            $('#progress-btn').show();
+            $('#alert-danger').show();
+        }
+    });
+})
+
 $('#contact-form').on('submit', function (e) {
     e.preventDefault();
     $('#alert-danger').hide();
