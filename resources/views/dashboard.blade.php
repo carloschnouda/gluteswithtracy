@@ -23,7 +23,7 @@
             <section id="workout" class="mt-10">
                 <h1 class="mb-10 text-center text-4xl font-bold text-[#f00c93]">{{ $settings['workout_section_title'] }}
                 </h1>
-                <div class="grid grid-cols-1 gap-10 rounded-lg shadow-2xl md:grid-cols-3 md:p-10">
+                <div class="grid grid-cols-1 gap-10 rounded-lg shadow-2xl md:grid-cols-3 p-5 md:p-10">
                     @foreach ($workout_plans as $plan)
                         <div class="mb-10">
                             <h1 class="mb-5 text-center text-3xl font-bold">{{ $plan->title }}</h1>
@@ -37,7 +37,8 @@
 
                                     @foreach ($category->workouts as $workout)
                                         <div class="workout-wrapper {{ $workout->video ? 'hover:cursor-pointer hover:rounded-lg hover:bg-[#f00c93] hover:shadow-md' : '' }} group mb-2"
-                                            data-video-url="{{ Storage::url($workout->video) }}">
+                                            data-video-url="{{ Storage::url($workout->video) }}"
+                                            data-video={{ $workout->video }}>
                                             <p
                                                 class="{{ $workout->video ? 'group-hover:text-[#fff]' : '' }} text-center text-xl text-[#f00c93]">
                                                 {{ $workout->name }}</p>

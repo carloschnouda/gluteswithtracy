@@ -206,6 +206,11 @@ $('#contact-form').on('submit', function (e) {
 $(document).ready(function () {
     // When workout wrapper is clicked
     $('.workout-wrapper').on('click', function () {
+        // Check if video exists
+        var videoExist = $(this).data('video');
+        if (!videoExist) {
+            return;
+        }
         // Get video URL from the data attribute
         var videoUrl = $(this).data('video-url');
 
