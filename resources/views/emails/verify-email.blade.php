@@ -1,6 +1,6 @@
 <h2>Dear {{ $attributes['first_name'] }},</h2>
-<b>Thank you for registering with us.</b><br>
-Kindly verify your email in order to proceed by clicking on the following button :<br>
+<br>
+{!! $settings['verify_user_email'] !!}
 <br>
 <a style=" background-color: #f00c93;
   border: none;

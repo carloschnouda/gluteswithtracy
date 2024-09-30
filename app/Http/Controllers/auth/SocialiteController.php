@@ -11,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Str;
 
@@ -50,6 +51,9 @@ class SocialiteController extends Controller
                 'password' => encrypt('123456dummy'),
                 'email_verified' => 1,
             ]);
+            Mail::send('emails.google-verify', compact('newUser'), function ($message) use ($newUser) {
+                $message->to($newUser['email'])->subject('Subscribe');
+            });
             Auth::login($newUser);
             return redirect('/');
         }
