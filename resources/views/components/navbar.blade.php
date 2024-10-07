@@ -10,18 +10,18 @@
                     class="text-md hidden w-full justify-center rounded-md bg-[#f00c93] px-6 py-2 font-bold leading-6 text-white shadow-sm hover:bg-[#ed6fb7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 md:flex">{{ $settings['navbar_login_button'] }}</a>
             @endguest
             @auth
-                <div class="relative flex rounded-full bg-gray-800 text-sm hover:cursor-pointer focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 md:me-0"
+                <div class="relative flex rounded-full bg-gray-800 text-sm hover:cursor-pointer focus:ring-4 focus:ring-gray-300  md:me-0"
                     id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                     data-dropdown-placement="bottom">
                     <img class="h-8 w-8 rounded-full" src="{{ asset('assets/images/noavatar.png') }}" alt="user photo">
                     <!-- Dropdown menu -->
-                    <div class="z-50 my-4 hidden list-none divide-y divide-gray-100 rounded-lg bg-white text-base shadow dark:divide-gray-600 dark:bg-gray-700"
+                    <div class="z-50 my-4 hidden list-none divide-y divide-gray-100 rounded-lg bg-white text-base shadow "
                         id="user-dropdown">
                         <div class="px-4 py-4">
-                            <span class="block text-sm text-gray-900 dark:text-white">Hello,
+                            <span class="block text-sm text-gray-900 ">Hello,
                                 {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} !</span>
                             <span
-                                class="block truncate text-sm text-gray-500 dark:text-gray-400">{{ Auth::user()->email }}</span>
+                                class="block truncate text-sm text-gray-500 ">{{ Auth::user()->email }}</span>
                         </div>
                         <ul class="py-2" aria-labelledby="user-menu-button">
                             <li class="mb-2">
@@ -58,7 +58,7 @@
         </div>
         <div class="hidden w-full items-center justify-between md:order-1 md:flex md:w-auto" id="navbar-user">
             <ul
-                class="mt-4 flex flex-col rounded-lg border border-gray-100 p-4 font-medium rtl:space-x-reverse dark:border-gray-700 md:mt-0 md:flex-row md:border-0 md:p-0">
+                class="mt-4 flex flex-col rounded-lg border border-gray-100 p-4 font-medium rtl:space-x-reverse  md:mt-0 md:flex-row md:border-0 md:p-0">
                 @foreach ($menu_items as $item)
                     <li>
                         @if (Route::currentRouteName() == 'home')
