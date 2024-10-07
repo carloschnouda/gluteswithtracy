@@ -401,7 +401,8 @@ $primaryColor: #f00c93;
     }
 }
 
-.membership-section {
+.membership-section,
+.description {
     h1 {
         font-size: 3rem;
     }
@@ -497,7 +498,8 @@ $primaryColor: #f00c93;
         }
     }
 
-    .membership-section {
+    .membership-section,
+    .description {
         h1 {
             font-size: 2rem;
         }
