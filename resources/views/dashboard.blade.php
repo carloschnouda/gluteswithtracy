@@ -3,27 +3,32 @@
     @if (Auth::user()->paied)
         <div class="container mx-auto py-10">
             <header>
-                <h1 class="text-center text-3xl font-bold text-[#f00c93]" animate='up'>Welcome {{ Auth::user()->first_name }}
+                <h1 class="text-center text-3xl font-bold text-[#f00c93]" animate='up'>Welcome
+                    {{ Auth::user()->first_name }}
                     {{ Auth::user()->last_name }}</h1>
-                <h2 class="mt-2 text-center text-xl text-[#f00c93] text-gray-500" animate='down'>Here you can find your proffessional
+                <h2 class="mt-2 text-center text-xl text-[#f00c93] text-gray-500" animate='down'>Here you can find your
+                    proffessional
                     workout plan</h2>
             </header>
 
             <div id="nutrition_section">
-                <h1 class="mt-10 text-3xl font-bold text-[#f00c93]" animate>{{ $settings['nutrition_section_title'] }}</h1>
+                <h1 class="mt-10 text-3xl font-bold text-[#f00c93]" animate>{{ $settings['nutrition_section_title'] }}
+                </h1>
                 <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
                     <div class="description mt-5" animate style="transition-delay: 1s">
                         {!! $settings['nutrition_section_description'] !!}
                     </div>
                     <div class="image">
-                        <img animate='right' style="transition-delay: 1.5s" src="{{ Storage::url($settings['nutrition_section_image']) }}" alt="Nutrition Image">
+                        <img animate='right' style="transition-delay: 1.5s"
+                            src="{{ Storage::url($settings['nutrition_section_image']) }}" alt="Nutrition Image">
                     </div>
                 </div>
             </div>
             <section id="workout" class="mt-10">
-                <h1 class="mb-10 text-center text-4xl font-bold text-[#f00c93]" animate>{{ $settings['workout_section_title'] }}
+                <h1 class="mb-10 text-center text-4xl font-bold text-[#f00c93]" animate>
+                    {{ $settings['workout_section_title'] }}
                 </h1>
-                <div class="grid grid-cols-1 gap-10 rounded-lg shadow-2xl md:grid-cols-3 p-5 md:p-10">
+                <div class="grid grid-cols-1 gap-10 rounded-lg p-5 shadow-2xl md:grid-cols-3 md:p-10">
                     @foreach ($workout_plans as $plan)
                         <div class="mb-10" animate style="transition-delay: {{ $loop->index * 0.8 }}s">
                             <h1 class="mb-5 text-center text-3xl font-bold">{{ $plan->title }}</h1>
@@ -58,7 +63,40 @@
                     @endforeach
                 </div>
             </section>
-            <section class="membership-section mt-10" animate>
+
+            <section id="ab_routine" class="mt-20">
+                <h1 class="text-center text-4xl font-bold text-[#f00c93]" animate>{{ $settings['abs_section_title'] }}
+                </h1>
+                <h3 class="mb-10 mt-2 text-center text-xl text-[#f00c93] text-gray-500" animate>
+                    {{ $settings['abs_section_subtitle'] }}</h3>
+                <div class="grid grid-cols-1 gap-5 rounded-lg p-5 shadow-2xl md:grid-cols-3 md:p-10">
+                    @foreach ($abs_workout as $ab_workout)
+                        <div animate style="transition-delay: {{ $loop->index * 0.5 }}s">
+                            <div class="workout-wrapper {{ $ab_workout->video ? 'hover:cursor-pointer hover:rounded-lg hover:bg-[#f00c93] hover:shadow-md' : '' }} group mb-2"
+                                data-video-url="{{ Storage::url($ab_workout->video) }}"
+                                data-video={{ $ab_workout->video }}>
+                                <p
+                                    class="{{ $ab_workout->video ? 'group-hover:text-[#fff]' : '' }} mb-1 text-center text-2xl font-bold text-[#f00c93]">
+                                    {{ $ab_workout->name }}</p>
+                                <p
+                                    class="text-md {{ $ab_workout->video ? 'group-hover:text-[#fff]' : '' }} mb-2 text-center text-gray-500">
+                                    {{ $ab_workout->repetition }}</p>
+                                @if ($ab_workout->video)
+                                    <p class="text-center text-xs italic text-gray-500 group-hover:text-[#fff]">
+                                        Click To watch video</p>
+                                @endif
+                            </div>
+
+                        </div>
+                    @endforeach
+                </div>
+            </section>
+            <section id="stretch_message" class="mt-20">
+                <h1 class="text-center text-5xl md:text-6xl font-bold bg-[#f00c93] text-[#fff] p-5 rounded tracking-wider" animate>
+                    {{ $settings['stretch_message'] }}
+                </h1>
+            </section>
+            <section class="membership-section mt-20" animate>
                 {!! $settings['membership_section'] !!}
             </section>
         </div>

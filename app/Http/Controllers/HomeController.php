@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AbsWorkout;
 use App\ContactRequest;
 use App\Faq;
 use App\GeneralSetting;
@@ -27,7 +28,8 @@ class HomeController extends Controller
     public function dashboard()
     {
         $workout_plans = WorkoutPlan::with('categories.workouts')->orderBy('ht_pos')->get();
-        return view('dashboard', compact('workout_plans'));
+        $abs_workout = AbsWorkout::orderBy('ht_pos')->get();
+        return view('dashboard', compact('workout_plans', 'abs_workout'));
     }
 
     function submitContactForm(Request $request)

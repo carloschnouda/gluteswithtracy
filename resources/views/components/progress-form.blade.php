@@ -1,13 +1,13 @@
 <section class="bg-slate-50 py-10 md:pb-20">
 
-    <div class="mb-10">
+    <div class="container mx-auto mb-10">
         <h2 class="text-center text-3xl font-bold uppercase tracking-wide text-[#f00c93]" animate='up'>
             Track your progress </h2>
         <h4 class="text-center text-lg font-semibold tracking-wide text-[#f00c93]" animate='down'>We will keep tracking
             your progress
             for you</h4>
     </div>
-    <form id="progress-form" class="mx-auto max-w-lg rounded-xl bg-white p-10 shadow-xl" animate method="POST"
+    <form id="progress-form" class="mx-5 md:mx-auto max-w-lg rounded-xl bg-white p-10 shadow-xl" animate method="POST"
         action="{{ route('progress') }}">
         @csrf
         <div class="grid md:grid-cols-2 md:gap-6">
