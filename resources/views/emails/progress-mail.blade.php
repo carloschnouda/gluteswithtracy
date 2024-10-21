@@ -5,3 +5,4 @@
 <p><b>Email:</b> {{ $request['email'] }}</p>
 <p><b>Phone:</b> {{ $request['phone_number'] }}</p>
 <p><b>Current Weight:</b> {{ $request['current_weight'] }}</p>
+<p><b>Message:</b> {{ $request['message'] }}</p>

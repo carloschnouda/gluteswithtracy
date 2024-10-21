@@ -13,19 +13,18 @@
         <div class="grid md:grid-cols-2 md:gap-6">
             <div class="group relative z-0 mb-5 w-full">
                 <input type="text" name="first_name" id="floating_first_name"
-                    class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-gray-100 px-1 py-1.5 text-sm text-gray-900 focus:border-[#f00c93] focus:outline-none focus:ring-0"
-                    placeholder="" value="{{ Auth::user()->first_name }}" readonly />
+                    class="peer block w-full appearance-none border-0 border-b-2 border-gray-300  px-1 py-1.5 text-sm text-gray-900 focus:border-[#f00c93] focus:outline-none focus:ring-0"
+                    placeholder="" value="{{ Auth::user()->first_name ? Auth::user()->first_name : '' }}" />
                 <label for="floating_first_name"
-                    class="absolute top-0 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#f00c93] rtl:peer-focus:translate-x-1/4 ">First
+                    class="absolute top-0  origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#f00c93] rtl:peer-focus:translate-x-1/4 ">First
                     name</label>
             </div>
             <div class="group relative z-0 mb-5 w-full">
                 <input type="text" name="last_name" id="floating_last_name"
-                    class="{{ Auth::user()->last_name ? 'py-1.5 bg-gray-100' : '' }} peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-1 py-1.5 text-sm text-gray-900 focus:border-[#f00c93] focus:outline-none focus:ring-0"
-                    placeholder=" " value="{{ Auth::user()->last_name ? Auth::user()->last_name : '' }}"
-                    {{ Auth::user()->last_name ? 'readonly' : '' }} />
+                    class=" peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-1 py-1.5 text-sm text-gray-900 focus:border-[#f00c93] focus:outline-none focus:ring-0"
+                    placeholder=" " value="{{ Auth::user()->last_name ? Auth::user()->last_name : '' }}" />
                 <label for="floating_last_name"
-                    class="absolute top-0 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#f00c93] rtl:peer-focus:translate-x-1/4 ">Last
+                    class="absolute top-0  origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#f00c93] rtl:peer-focus:translate-x-1/4 ">Last
                     name</label>
             </div>
         </div>
@@ -33,21 +32,20 @@
 
             <div class="group relative z-0 mb-5 w-full">
                 <input type="email" name="email" id="floating_email"
-                    class="peer mt-2 block w-full appearance-none border-0 border-b-2 border-gray-300 bg-gray-100 px-1 py-1.5 text-sm text-gray-900 focus:border-[#f00c93] focus:outline-none focus:ring-0"
-                    placeholder=" " value="{{ Auth::user()->email }}" readonly />
+                    class="peer mt-2 block w-full appearance-none border-0 border-b-2 bg-gray-100 border-gray-300  px-1 py-1.5 text-sm text-gray-900 focus:border-[#f00c93] focus:outline-none focus:ring-0"
+                    placeholder=" " value="{{ Auth::user()->email ? Auth::user()->email : '' }}" readonly />
                 <label for="floating_email"
-                    class="absolute top-2 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#f00c93] rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4 ">Email
+                    class="absolute top-2  origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#f00c93] rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4 ">Email
                     address</label>
             </div>
 
             <div class="group relative z-0 mb-5 w-full">
                 <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                     type="text" name="phone_number" id="floating_phone"
-                    class="{{ Auth::user()->phone_number ? 'bg-gray-100 py-1.5 mt-2' : 'bg-transparent py-2.5' }} peer block w-full appearance-none border-0 border-b-2 border-gray-300 px-0 text-sm text-gray-900 focus:border-[#f00c93] focus:outline-none focus:ring-0"
-                    placeholder=" " value="{{ Auth::user()->phone_number }}"
-                    {{ Auth::user()->phone_number ? 'readonly' : '' }} />
+                    class=" py-2.5 peer block w-full appearance-none border-0 border-b-2 border-gray-300 px-0 text-sm text-gray-900 focus:border-[#f00c93] focus:outline-none focus:ring-0"
+                    placeholder=" " value="{{ Auth::user()->phone_number }}" />
                 <label for="floating_phone"
-                    class="absolute top-2 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#f00c93] rtl:peer-focus:translate-x-1/4 ">Phone
+                    class="absolute top-2  origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#f00c93] rtl:peer-focus:translate-x-1/4 ">Phone
                     number</label>
             </div>
 
@@ -60,7 +58,7 @@
                     class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-[#f00c93] focus:outline-none focus:ring-0"
                     placeholder=" " />
                 <label for="current_weight"
-                    class="absolute top-2 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#f00c93] rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4 ">Current
+                    class="absolute top-2  origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#f00c93] rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4 ">Current
                     Weight <span class="text-xs text-gray-500 peer-focus:text-[#f00c93]">(kg)</span></label>
 
             </div>
@@ -98,6 +96,16 @@
                     id="side_image" name="side_image" type="file">
 
             </div>
+        </div>
+
+        <div class="group relative z-0 mb-5 w-full">
+            <textarea name="message" id="floating_message" rows="4"
+                class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-[#f00c93] focus:outline-none focus:ring-0"
+                placeholder=" "></textarea>
+            <label for="floating_message"
+                class="absolute top-2  origin-[0] -translate-y-6 scale-75 transform text-sm text-gray900 font-medium duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#f00c93] rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4 ">
+                Your Message
+            </label>
         </div>
 
         <button type="submit" id="progress-btn"
