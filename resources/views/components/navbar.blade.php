@@ -1,7 +1,7 @@
 <nav id="navbar" class="sticky left-0 top-0 z-50 w-full border-b border-gray-200 bg-white shadow-lg">
     <div class="container mx-auto flex flex-wrap items-center justify-between px-4 py-2">
         <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="{{ Storage::url($settings['main_logo']) }}" class="h-[100px] w-[100px] object-fit"
+            <img src="{{ Storage::url($settings['main_logo']) }}" class=" h-[85px] w-[85px]  md:h-[100px] md:w-[100px] object-fit"
                 alt="Logo" />
         </a>
 
