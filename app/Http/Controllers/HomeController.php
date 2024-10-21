@@ -8,6 +8,7 @@ use App\Faq;
 use App\GeneralSetting;
 use App\Models\User;
 use App\OurService;
+use App\SeoPage;
 use App\WorkoutPlan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,6 +24,7 @@ class HomeController extends Controller
     {
         $services = OurService::orderBy('ht_pos')->get();
         $faqs = Faq::orderBy('ht_pos')->get();
+
         return view('home', compact('services', 'faqs'));
     }
 

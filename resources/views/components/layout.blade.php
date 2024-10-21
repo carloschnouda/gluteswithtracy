@@ -5,7 +5,28 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>GlutesWithTracy</title>
+        @if (isset($seo_page))
+            <!-- Primary Meta Tags -->
+            <title>{{ $seo_page->title }} | GlutesWithTracy </title>
+            <meta name="title" content="{{ $seo_page->title }}">
+            <meta name="description" content="{{ $seo_page->description }}">
+
+            <!-- Open Graph / Facebook -->
+            <meta property="og:type" content="website">
+            <meta property="og:url" content="{{ url()->current() }}">
+            <meta property="og:title" content="{{ $seo_page->title }}">
+            <meta property="og:description" content="{{ $seo_page->description }}">
+            <meta property="og:image" content="{{ Storage::url($seo_page->image) }}">
+
+            <!-- Twitter -->
+            <meta property="twitter:card" content="summary_large_image">
+            <meta property="twitter:url" content="{{ url()->current() }}">
+            <meta property="twitter:title" content="{{ $seo_page->title }}">
+            <meta property="twitter:description" content="{{ $seo_page->description }}">
+            <meta property="twitter:image" content="{{ Storage::url($seo_page->image) }}">
+        @else
+            <title>404 | GlutesWithTracy </title>
+        @endif
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">

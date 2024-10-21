@@ -25,7 +25,7 @@ Route::get('redirect', [SocialiteController::class, 'redirect'])->name('redirect
 Route::get('callback', [SocialiteController::class, 'callback'])->name('callback');
 
 
-Route::middleware(['website'])->group(function () {
+Route::middleware(['website', 'seo'])->group(function () {
 
     //Home
     Route::get('/', [HomeController::class, 'show'])->name('home');
@@ -57,6 +57,6 @@ Route::middleware(['website'])->group(function () {
     Route::post('/progress', [HomeController::class, 'submitProgressForm'])->name('progress');
 });
 
-Route::middleware(['auth', 'website'])->group(function () {
+Route::middleware(['auth', 'website', 'seo'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 });
