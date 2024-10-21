@@ -21,7 +21,7 @@
 
     <x-our-plan :services="$services" />
 
-    <x-testimonials />
+    {{-- <x-testimonials /> --}}
 
     <x-faq :faqs="$faqs" />
 

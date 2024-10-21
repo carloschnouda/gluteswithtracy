@@ -34,37 +34,39 @@
                 <h1 class="mb-10 text-center text-4xl font-bold text-[#f00c93]" animate>
                     {{ $settings['workout_section_title'] }}
                 </h1>
-                <div class="grid grid-cols-1 gap-10 rounded-lg p-5 shadow-2xl md:grid-cols-3 md:p-10">
+                <div class="grid grid-cols-1 gap-10 p-5 md:p-10">
                     @foreach ($workout_plans as $plan)
                         <div class="mb-10" animate style="transition-delay: {{ $loop->index * 0.8 }}s">
                             <h1 class="mb-5 text-center text-3xl font-bold">{{ $plan->title }}</h1>
-                            @foreach ($plan->categories as $category)
-                                <div class="mb-10">
-                                    <div>
-                                        <p class="my-3 text-center text-3xl font-bold text-[#f00c93]">
-                                            {{ $category->title }}
-                                        </p>
-                                    </div>
-
-                                    @foreach ($category->workouts as $workout)
-                                        <div class="workout-wrapper {{ $workout->video ? 'hover:cursor-pointer hover:rounded-lg hover:bg-[#f00c93] hover:shadow-md' : '' }} group mb-2"
-                                            data-video-url="{{ Storage::url($workout->video) }}"
-                                            data-video={{ $workout->video }}>
-                                            <p
-                                                class="{{ $workout->video ? 'group-hover:text-[#fff]' : '' }} text-center text-xl text-[#f00c93]">
-                                                {{ $workout->name }}</p>
-                                            <p
-                                                class="text-md {{ $workout->video ? 'group-hover:text-[#fff]' : '' }} text-center text-gray-500">
-                                                {{ $workout->repetition }}</p>
-                                            @if ($workout->video)
-                                                <p
-                                                    class="text-center text-xs italic text-gray-500 group-hover:text-[#fff]">
-                                                    Click To watch video</p>
-                                            @endif
+                            <div class="grid grid-cols-1 gap-5 rounded-lg p-5 shadow-2xl {{ count($plan->categories) < 2 ? 'sm:grid-cols-1 md:grid-cols-1' : 'sm:grid-cols-2 md:grid-cols-3' }}  md:p-10 justify-items-center ">
+                                @foreach ($plan->categories as $category)
+                                    <div class="mb-10 col-span-1">
+                                        <div>
+                                            <p class="my-3 text-center text-3xl font-bold text-[#f00c93]">
+                                                {{ $category->title }}
+                                            </p>
                                         </div>
-                                    @endforeach
-                                </div>
-                            @endforeach
+
+                                        @foreach ($category->workouts as $workout)
+                                            <div class="workout-wrapper {{ $workout->video ? 'hover:cursor-pointer hover:rounded-lg hover:bg-[#f00c93] hover:shadow-md' : '' }} group mb-2"
+                                                data-video-url="{{ Storage::url($workout->video) }}"
+                                                data-video={{ $workout->video }}>
+                                                <p
+                                                    class="{{ $workout->video ? 'group-hover:text-[#fff]' : '' }} text-center text-xl text-[#f00c93]">
+                                                    {{ $workout->name }}</p>
+                                                <p
+                                                    class="text-md {{ $workout->video ? 'group-hover:text-[#fff]' : '' }} text-center text-gray-500">
+                                                    {{ $workout->repetition }}</p>
+                                                @if ($workout->video)
+                                                    <p
+                                                        class="text-center text-xs italic text-gray-500 group-hover:text-[#fff]">
+                                                        Click To watch video</p>
+                                                @endif
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
                     @endforeach
                 </div>

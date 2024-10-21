@@ -261,6 +261,8 @@ $(document).ready(function () {
 
         // Show the modal
         $('#videoModal').removeClass('hidden');
+        $('body').addClass('no-scroll');
+        $('html').addClass('no-scroll');
     });
 
     // When close button is clicked
@@ -271,6 +273,8 @@ $(document).ready(function () {
         // Stop the video from playing
         $('#workoutVideo').get(0).pause();
         $('#workoutVideo').attr('src', '');
+        $('body').removeClass('no-scroll');
+        $('html').removeClass('no-scroll');
     });
 
     // When user clicks outside the modal content, close the modal
@@ -282,6 +286,10 @@ $(document).ready(function () {
             // Stop the video
             $('#workoutVideo').get(0).pause();
             $('#workoutVideo').attr('src', '');
+
+            // Remove the no-scroll class
+            $('body').removeClass('no-scroll');
+            $('html').removeClass('no-scroll');
         }
     });
 });
