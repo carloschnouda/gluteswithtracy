@@ -51,6 +51,7 @@ class SocialiteController extends Controller
                 'first_name' => $user->name,
                 'email' => $user->email,
                 'google_id' => $user->id,
+                'phone_number' => $user->phone,
                 'password' => encrypt('123456dummy'),
                 'email_verified' => 1,
             ]);
