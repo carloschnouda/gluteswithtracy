@@ -28,7 +28,7 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        $user = User::find(Auth::user()->id)->with('user_plans.categories.workouts')->first();
+        $user = User::where('id', Auth::user()->id)->with('user_plans.categories.workouts')->first();
         $abs_workout = AbsWorkout::orderBy('ht_pos')->get();
         return view('dashboard', compact('abs_workout', 'user'));
     }
