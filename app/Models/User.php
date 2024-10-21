@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $guarded =[];
+    protected $guarded = [];
 
     /**
      * The attributes that are mass assignable.
@@ -44,4 +44,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function user_plans()
+    {
+        return $this->belongsToMany('App\WorkoutPlan', 'user_plan_user', 'user_id', 'workout_plan_id')->orderBy('user_plan_user.ht_pos');
+    }
 }

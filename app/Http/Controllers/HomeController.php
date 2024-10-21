@@ -10,6 +10,7 @@ use App\Models\User;
 use App\OurService;
 use App\WorkoutPlan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -27,9 +28,9 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        $workout_plans = WorkoutPlan::with('categories.workouts')->orderBy('ht_pos')->get();
+        $user = User::find(Auth::user()->id)->with('user_plans.categories.workouts')->first();
         $abs_workout = AbsWorkout::orderBy('ht_pos')->get();
-        return view('dashboard', compact('workout_plans', 'abs_workout'));
+        return view('dashboard', compact('abs_workout', 'user'));
     }
 
     function submitContactForm(Request $request)

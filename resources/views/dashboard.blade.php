@@ -35,7 +35,7 @@
                     {{ $settings['workout_section_title'] }}
                 </h1>
                 <div class="grid grid-cols-1 gap-10 p-5 md:p-10">
-                    @foreach ($workout_plans as $plan)
+                    @foreach ($user->user_plans as $plan)
                         <div class="mb-10" animate style="transition-delay: {{ $loop->index * 0.8 }}s">
                             <h1 class="mb-5 text-center text-3xl font-bold">{{ $plan->title }}</h1>
                             <div class="grid grid-cols-1 gap-5 rounded-lg p-5 shadow-2xl {{ count($plan->categories) < 2 ? 'sm:grid-cols-1 md:grid-cols-1' : 'sm:grid-cols-2 md:grid-cols-3' }}  md:p-10 justify-items-center ">
