@@ -129,7 +129,7 @@
         <!-- Modal Structure -->
         <div id="videoModal"
             class="fixed inset-0 z-50 flex hidden items-center justify-center bg-gray-900 bg-opacity-75">
-            <div class="aspect-video rounded-lg p-5">
+            <div class="aspect-video rounded-lg p-5 content-center">
                 <video id="workoutVideo" controls class="h-auto w-full md:h-[500px]">
                     <source src="" type="video/mp4">
                 </video>
