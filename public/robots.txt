@@ -1,2 +1,4 @@
 User-agent: *
-Disallow:
+Disallow: /storage/
+Disallow: /assets/
+Sitemap: https://www.gluteswithtracy.com/sitemap.xml
