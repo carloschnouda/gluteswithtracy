@@ -1,5 +1,5 @@
 <div id="toast-danger"
-    class="fixed top-[110px] left-2 z-50 mb-4 flex w-full max-w-xs items-center rounded-lg bg-white p-4 text-gray-500 shadow "
+    class="fixed top-[110px] md:top-[120px] left-2 z-50 mb-4 flex w-full max-w-xs items-center rounded-lg bg-white p-4 text-gray-500 shadow "
     role="alert">
     <div
         class="inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-red-100 text-red-500 ">
