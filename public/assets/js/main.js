@@ -248,21 +248,28 @@ $('#contact-form').on('submit', function (e) {
 $(document).ready(function () {
     // When workout wrapper is clicked
     $('.workout-wrapper').on('click', function () {
+        
         // Check if video exists
         var videoExist = $(this).data('video');
         if (!videoExist) {
             return;
         }
+        
         // Get video URL from the data attribute
         var videoUrl = $(this).data('video-url');
 
         // Set the video source
-        $('#workoutVideo').attr('src', videoUrl);
+        var videoElement = $('#workoutVideo');
+        videoElement.attr('src', videoUrl);
+        
+        // Autoplay the video
+        videoElement.get(0).play();
 
         // Show the modal
         $('#videoModal').removeClass('hidden');
         $('body').addClass('no-scroll');
         $('html').addClass('no-scroll');
+        
     });
 
     // When close button is clicked
@@ -271,8 +278,10 @@ $(document).ready(function () {
         $('#videoModal').addClass('hidden');
 
         // Stop the video from playing
-        $('#workoutVideo').get(0).pause();
-        $('#workoutVideo').attr('src', '');
+        var videoElement = $('#workoutVideo').get(0);
+        videoElement.pause();
+        videoElement.src = '';
+        
         $('body').removeClass('no-scroll');
         $('html').removeClass('no-scroll');
     });
@@ -280,12 +289,14 @@ $(document).ready(function () {
     // When user clicks outside the modal content, close the modal
     $(window).on('click', function (e) {
         if ($(e.target).is('#videoModal')) {
+            
             // Hide the modal
             $('#videoModal').addClass('hidden');
 
             // Stop the video
-            $('#workoutVideo').get(0).pause();
-            $('#workoutVideo').attr('src', '');
+            var videoElement = $('#workoutVideo').get(0);
+            videoElement.pause();
+            videoElement.src = '';
 
             // Remove the no-scroll class
             $('body').removeClass('no-scroll');
