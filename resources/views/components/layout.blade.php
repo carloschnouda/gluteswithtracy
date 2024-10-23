@@ -7,7 +7,7 @@
 
         @if (isset($seo_page))
             <!-- Primary Meta Tags -->
-            <title>{{ $seo_page->title }} | GlutesWithTracy </title>
+            <title>{{ $seo_page->title }} </title>
             <meta name="title" content="{{ $seo_page->title }}">
             <meta name="description" content="{{ $seo_page->description }}">
 
@@ -25,7 +25,7 @@
             <meta property="twitter:description" content="{{ $seo_page->description }}">
             <meta property="twitter:image" content="{{ Storage::url($seo_page->image) }}">
         @else
-            <title>404 | GlutesWithTracy </title>
+            <title>404 | Glutes With Tracy </title>
         @endif
 
         <!-- Fonts -->
@@ -45,14 +45,14 @@
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="GlutesWithTracy" />
         <link rel="manifest" href="/site.webmanifest" />
-        
+
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QNMS1NG9H"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-        
+
           gtag('config', 'G-0QNMS1NG9H');
         </script>
 
