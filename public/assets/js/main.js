@@ -66,7 +66,7 @@ function scrollToSectionFunction() {
         scrollToSection(sectionSlug);
     }
 
-    $("#navbar-user ul li div, #mobile-navbar ul li div").click(function (e) {
+    $("#navbar-user ul li div, #mobile-navbar ul li div, #plan-btn").click(function (e) {
         e.preventDefault();
 
         var section = $(this).data('section');
@@ -248,20 +248,20 @@ $('#contact-form').on('submit', function (e) {
 $(document).ready(function () {
     // When workout wrapper is clicked
     $('.workout-wrapper').on('click', function () {
-        
+
         // Check if video exists
         var videoExist = $(this).data('video');
         if (!videoExist) {
             return;
         }
-        
+
         // Get video URL from the data attribute
         var videoUrl = $(this).data('video-url');
 
         // Set the video source
         var videoElement = $('#workoutVideo');
         videoElement.attr('src', videoUrl);
-        
+
         // Autoplay the video
         videoElement.get(0).play();
 
@@ -269,7 +269,7 @@ $(document).ready(function () {
         $('#videoModal').removeClass('hidden');
         $('body').addClass('no-scroll');
         $('html').addClass('no-scroll');
-        
+
     });
 
     // When close button is clicked
@@ -281,7 +281,7 @@ $(document).ready(function () {
         var videoElement = $('#workoutVideo').get(0);
         videoElement.pause();
         videoElement.src = '';
-        
+
         $('body').removeClass('no-scroll');
         $('html').removeClass('no-scroll');
     });
@@ -289,7 +289,7 @@ $(document).ready(function () {
     // When user clicks outside the modal content, close the modal
     $(window).on('click', function (e) {
         if ($(e.target).is('#videoModal')) {
-            
+
             // Hide the modal
             $('#videoModal').addClass('hidden');
 

@@ -9,8 +9,8 @@
             </p>
         </div>
         <div class="grid grid-cols-1 items-center justify-items-center gap-8 md:grid-cols-2 lg:grid-cols-3">
-            @foreach ($services as $index => $plan)
-                <x-plan-card :service="$plan" index="{{ $index }}" />
+            @foreach ($services as $index => $service)
+                <x-service-card :service="$service" index="{{ $index }}" />
             @endforeach
         </div>
     </div>

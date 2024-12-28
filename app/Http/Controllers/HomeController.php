@@ -7,6 +7,7 @@ use App\ContactRequest;
 use App\Faq;
 use App\GeneralSetting;
 use App\Models\User;
+use App\OurPlan;
 use App\OurService;
 use App\SeoPage;
 use App\UserMessage;
@@ -24,9 +25,10 @@ class HomeController extends Controller
     public function show()
     {
         $services = OurService::orderBy('ht_pos')->get();
+        $plans = OurPlan::orderBy('ht_pos')->get();
         $faqs = Faq::orderBy('ht_pos')->get();
 
-        return view('home', compact('services', 'faqs'));
+        return view('home', compact('services', 'faqs', 'plans'));
     }
 
     public function dashboard()

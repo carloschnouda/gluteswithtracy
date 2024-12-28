@@ -1,15 +1,27 @@
-<div class="w-full max-w-sm" animate style="transition-delay: {{ $index * 0.5 }}s">
-    <div class="my-4">
-        <img class="m-auto aspect-square h-[120px] w-[120px] object-contain" src="{{ Storage::url($service['icon']) }}"
-            alt="">
-    </div>
+<div class="{{ $plan['custom_plan'] ? 'shadow-lg' : '' }} overflow-hidden rounded-md border-2 border-gray-100 bg-white">
+    <div class="flex h-full flex-col p-8 xl:px-12">
+        <h3 class="text-base font-semibold text-[#f00c93]">{{ $plan['title'] }}</h3>
+        <p class="mt-7 text-5xl font-bold text-black">${{ $plan['price'] }}</p>
+        <p class="mt-3 text-base text-gray-600">{{ $plan['subtitle'] }}</p>
 
-    <div class="my-4 text-center text-2xl font-bold text-gray-600">
-        {{ $service['title'] }}
-    </div>
+        <div class="plan-description mt-9 flex flex-col items-center justify-center space-y-5 text-left">
+            {!! $plan['description'] !!}
+        </div>
 
-    <div class="text-md text-center text-gray-500">
-        {!! $service['description'] !!}
-    </div>
+        @if ($plan['custom_plan'])
+            <div class="inline-flex grow items-end justify-center">
 
+                <div id='plan-btn' data-section="contact"
+                    class="mt-10 rounded-md bg-[#f00c93] px-10 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-[#ed6fb7]"
+                    role="button"> {{ $plan['button_text'] }}</div>
+            </div>
+        @else
+            <div class="inline-flex grow items-end justify-center">
+
+                <a href="{{ route('login') }}"
+                    class="mt-10 rounded-md bg-[#f00c93] px-10 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-[#ed6fb7]"
+                    role="button"> {{ $plan['button_text'] }}</a>
+            </div>
+        @endif
+    </div>
 </div>

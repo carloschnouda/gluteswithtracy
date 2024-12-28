@@ -19,7 +19,9 @@
         </div>
     </section>
 
-    <x-our-plan :services="$services" />
+    <x-our-plans :plans="$plans" />
+
+    <x-our-services :services="$services" />
 
     {{-- <x-testimonials /> --}}
 

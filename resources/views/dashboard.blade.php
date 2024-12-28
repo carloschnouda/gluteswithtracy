@@ -113,7 +113,7 @@
             <section id="warm_up" class="mt-20">
                 <div class="relative mt-10">
                     <video id="warmUpVideo" src="{{ Storage::url($settings['warm_up_section_video']) }}"
-                        class="aspect-video w-full" controls></video>
+                        class="aspect-video object-cover w-full" controls></video>
                 </div>
                 <div class="description mt-20">
                     {!! $settings['warm_up_section_description'] !!}

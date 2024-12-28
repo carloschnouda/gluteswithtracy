@@ -24,6 +24,23 @@ html.no-scroll {
   display: block;
 }
 
+#plans .plan-description ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+#plans .plan-description ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: url("../images/icons/check.svg") no-repeat center;
+  background-size: contain;
+}
+
 #user-dropdown {
   position: absolute;
   right: -5px;

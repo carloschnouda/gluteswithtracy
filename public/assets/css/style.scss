@@ -11,6 +11,7 @@ body.no-scroll,
 html.no-scroll {
     overflow: hidden;
 }
+
 .container {
     max-width: 90% !important;
     width: 90% !important;
@@ -23,6 +24,29 @@ html.no-scroll {
     &:hover {
         #user-dropdown {
             display: block;
+        }
+    }
+}
+
+#plans {
+    .plan-description {
+        ul {
+            li {
+                position: relative; // To position the custom check mark
+                padding-left: 25px; // Space for the check mark
+                margin-bottom: 10px;
+                &::before {
+                    content: ''; // Create a pseudo-element
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 16px; // Width of the check.svg
+                    height: 16px; // Height of the check.svg
+                    background: url('../images/icons/check.svg') no-repeat center;
+                    background-size: contain; // Ensure the icon fits well
+                }
+            }
         }
     }
 }
