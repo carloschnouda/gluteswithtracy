@@ -340,6 +340,7 @@ body.menu-open .vbp-header-menu-button__svg .bottom {
 
 #why-choose-us .why-choose-us-description ul {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
 }

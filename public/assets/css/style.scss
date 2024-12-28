@@ -390,6 +390,7 @@ $primaryColor: #f00c93;
     .why-choose-us-description {
         ul {
             display: flex;
+            flex-wrap: wrap;
             gap: 10px;
             justify-content: center;
 
