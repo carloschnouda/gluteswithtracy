@@ -25,6 +25,8 @@
 
     {{-- <x-testimonials /> --}}
 
+    <x-why-choose-us />
+
     <x-faq :faqs="$faqs" />
 
     <x-contact-form />
