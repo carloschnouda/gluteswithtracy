@@ -66,7 +66,12 @@ function scrollToSectionFunction() {
         scrollToSection(sectionSlug);
     }
 
-    $("#navbar-user ul li div, #mobile-navbar ul li div, #plan-btn").click(function (e) {
+    $('#plan-btn').click(function (e) {
+        e.preventDefault();
+        scrollToSection('contact');
+    });
+
+    $("#navbar-user ul li div, #mobile-navbar ul li div").click(function (e) {
         e.preventDefault();
 
         var section = $(this).data('section');
