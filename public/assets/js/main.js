@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     $('#banner-button').on('click', function () {
         $('html, body').animate({
-            scrollTop: $(`#contact`).offset().top - 70
+            scrollTop: $(`#plans`).offset().top - 70
         }, 1000);
 
     });
